@@ -1,0 +1,67 @@
+environment:
+  name: ProductivityEnv
+  version: "2.0.0"
+  
+states:
+  focused:
+    reward_range: [5, 15]
+    transition:
+      focused: 0.6
+      distracted: 0.2
+      tired: 0.15
+      deep_focus: 0.05
+  distracted:
+    reward_range: [-15, -5]
+    transition:
+      focused: 0.4
+      distracted: 0.5
+      tired: 0.1
+      deep_focus: 0.0
+  tired:
+    reward_range: [-10, -2]
+    transition:
+      focused: 0.3
+      distracted: 0.3
+      tired: 0.4
+      deep_focus: 0.0
+  deep_focus:
+    reward_range: [15, 25]
+    transition:
+      focused: 0.3
+      distracted: 0.05
+      tired: 0.05
+      deep_focus: 0.6
+
+actions:
+  study:
+    effect:
+      focused: 0.7
+      deep_focus: 0.2
+      distracted: 0.05
+      tired: 0.05
+  take_break:
+    effect:
+      focused: 0.5
+      tired: 0.3
+      distracted: 0.15
+      deep_focus: 0.05
+  use_phone:
+    effect:
+      distracted: 0.8
+      focused: 0.1
+      tired: 0.1
+      deep_focus: 0.0
+  switch_task:
+    effect:
+      focused: 0.5
+      distracted: 0.2
+      tired: 0.2
+      deep_focus: 0.1
+
+parameters:
+  max_steps: 1000
+  fatigue_accumulation_rate: 0.05
+  burnout_threshold: 0.8
+  focus_streak_bonus: 2.0
+  time_decay_factor: 0.95
+  attention_drift_rate: 0.1
