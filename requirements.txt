@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+websockets
+pydantic
+numpy
+opencv-python
+opencv-contrib-python
+pytesseract
+Pillow
+python-multipart
+pyyaml
+python-dotenv
+aiofiles
+scikit-learn
