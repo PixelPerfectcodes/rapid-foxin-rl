@@ -1,0 +1,40 @@
+# Rapid Foxin Configuration
+app:
+  name: "Rapid Foxin AI"
+  version: "2.0.0"
+  environment: "production"
+  debug: false
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+  workers: 1
+
+rl:
+  learning_rate: 0.001
+  gamma: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995
+  batch_size: 64
+  memory_size: 10000
+  target_update_freq: 100
+
+perception:
+  screen_capture_rate: 2.0
+  camera_fps: 30
+  fusion_weights:
+    screen: 0.35
+    camera: 0.45
+    behavioral: 0.20
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/rapid_foxin.log"
+
+frontend:
+  update_interval: 1.0
+  chart_history: 50
+  max_logs: 100
